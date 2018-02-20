@@ -34,9 +34,8 @@ def run(command, **kw):
     except CalledProcessError:
         return ()
     except FileNotFoundError:
-        print("The directory '{}' was skipped because the {} binary could "
-              "not be located.\n".format(kw['cwd'].decode("UTF-8"),
-                                         command[0]))
+        print("The {} binary was not found. Skipping directory {}.\n"
+              .format(command[0], kw['cwd'].decode("UTF-8")))
         return ()
 
 def escape(s):
